@@ -16,6 +16,12 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `Order received ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}. Will be delivered to ${address}, at ${time}.`
+    );
+  },
+
   openingHours: {
     thu: {
       open: 12,
@@ -31,6 +37,13 @@ const restaurant = {
     },
   },
 };
+
+restaurant.orderDelivery({
+  time: '22',
+  address: 'Street',
+  mainIndex: 2,
+  starterIndex: 2,
+});
 
 let arr = [2, 3, 4];
 const a = [0];
@@ -58,3 +71,32 @@ console.log(i, j, k);
 // default values
 const [one = 1, two = 1, three = 1] = [1, 2];
 console.log(one, two, three);
+
+// destructuring objects
+const { name, openingHours, categories } = restaurant; // creating 3 new variables
+console.log(name, openingHours, categories);
+
+// destructuring objects and renaming them with new objects
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// setting default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// mutating variables
+let aa = 111;
+let bb = 999;
+const obj = { aa: 23, bb: 7, cc: 14 };
+({ aa, bb } = obj);
+console.log(aa, bb);
+
+// nested objects
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
