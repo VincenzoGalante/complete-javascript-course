@@ -100,3 +100,14 @@ const {
   fri: { open, close },
 } = openingHours;
 console.log(open, close);
+
+// spread operator
+const spreadArray = [7, 8, 9];
+const badWay = [1, 2, arr[0], arr[1], arr[2]];
+
+const goodWay = [1, 2, ...arr]; // using the spread operator instead of extracting every array element indidvidually
+console.log(goodWay);
+console.log(...goodWay); // whenever using needing the individual items of an array
+
+const newMenu = [...restaurant.mainMenu, 'Gnocchi'];
+console.log(newMenu);
